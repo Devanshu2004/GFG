@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Medal Prediction</h2>
+    {% if medal_prediction %}
+        <p>Predicted Medal: {{ medal_prediction.medal }}</p>
+        <p>Predicted Countries: {{ medal_prediction.predicted_countries }}</p>
+    {% else %}
+        <p>No prediction available for this event.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Upcoming Olympic Events</h2>
+    <ul>
+        {% for event in schedule_data %}
+            <li>
+                <strong>{{ event.event_title }}</strong>
+                <form id="medalPredictionForm" action="{{ url_for('predict_medal') }}" method="post">
+                    <input type="hidden" name="event_id" value="{{ event.event_id }}">
+                    <input type="submit" value="Predict Medal">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

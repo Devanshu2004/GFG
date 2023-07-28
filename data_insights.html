@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Data Insights</h2>
+    <h3>Most Successful Country: {{ data_insights.most_successful_country }}</h3>
+    <h3>Top Performing Athlete: {{ data_insights.top_performing_athlete }}</h3>
+
+    <h3>Country Medal Counts:</h3>
+    <ul>
+        {% for country, medals in data_insights.country_medal_counts.items() %}
+            <li>{{ country }}: {{ medals | tojson }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Participant Medal Counts:</h3>
+    <ul>
+        {% for participant, medals in data_insights.participant_medal_counts.items() %}
+            <li>{{ participant }}: {{ medals | tojson }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
